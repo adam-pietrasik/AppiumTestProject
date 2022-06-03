@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kamil/Desktop/nauka/semestr 6/mobilkiTedobre/AppiumTestProject/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/kamil/Desktop/nauka/semestr 6/mobilkiTedobre/AppiumTestProject/app/src/main/res/layout/activity_second.xml" value="0.12685185185185185" />
         <entry key="..\:/Zajecia/6_semestr/Zaawansowane_aplikacje_internetowe/AppiumTestProject/app/src/main/res/layout/activity_main.xml" value="0.3875" />
         <entry key="..\:/Zajecia/6_semestr/Zaawansowane_aplikacje_internetowe/AppiumTestProject/app/src/main/res/layout/activity_second.xml" value="0.35833333333333334" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
