@@ -2,30 +2,30 @@ package com.example.appiumtestproject;
 
 import static androidx.test.core.app.ApplicationProvider.getApplicationContext;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 
-import static androidx.test.core.app.ApplicationProvider.getApplicationContext;
-import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
-
-import androidx.test.filters.SdkSuppress;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.filters.SdkSuppress;
 import androidx.test.uiautomator.By;
 import androidx.test.uiautomator.UiDevice;
+import androidx.test.uiautomator.UiObject;
 import androidx.test.uiautomator.UiObject2;
+import androidx.test.uiautomator.UiScrollable;
+import androidx.test.uiautomator.UiSelector;
 import androidx.test.uiautomator.Until;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.assertThat;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
 @SdkSuppress(minSdkVersion = 18)
@@ -126,6 +126,22 @@ public class UiautomatorTestExample {
                         500);
         assertThat(changedText.getText(), is(equalTo(STRING_TO_BE_TYPED)));
     }
+
+    @Test
+    public void openRecyclerView_nextFindGithubUser() {
+        //onView(withId(R.id.goToRecyclerViewId)).perform(click());
+        mDevice.findObject(By.res(BASIC_SAMPLE_PACKAGE, "goToRecyclerViewId"))
+                .click();
+
+        //onView(withId(R.id.searchEditText)).perform(typeText("KamilSzus"), closeSoftKeyboard());
+        mDevice.findObject(By.res(BASIC_SAMPLE_PACKAGE,"searchEditText")).setText("KamilSzus");
+
+
+       // onView(withId(R.id.searchButtonId)).perform(click());
+        mDevice.findObject(By.res(BASIC_SAMPLE_PACKAGE, "searchButtonId"))
+                .click();
+    }
+
 
     private String getLauncherPackageName() {
         final Intent intent = new Intent(Intent.ACTION_MAIN);
