@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button enterMessageButton;
     private Button clearMessageButton;
     private Button goToAnotherActivityButton;
+    private Button goToRecyclerViewButton;
 
     private String message;
 
@@ -49,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
 
         goToAnotherActivityButton.setOnClickListener(l -> {
             startNewActivity(SecondActivity.class);
+        });
+
+        goToRecyclerViewButton.setOnClickListener(l -> {
+            startNewActivity(DataActivity.class);
         });
     }
 
@@ -81,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         enterMessageButton = findViewById(R.id.enterMessageButtonId);
         clearMessageButton = findViewById(R.id.clearMessageButtonId);
         goToAnotherActivityButton = findViewById(R.id.goToActivityButtonId);
+        goToRecyclerViewButton = findViewById(R.id.goToRecyclerViewId);
     }
 
 }

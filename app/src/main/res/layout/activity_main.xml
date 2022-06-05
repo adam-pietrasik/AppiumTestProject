@@ -60,4 +60,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterMessageButtonId" />
 
+    <Button
+        android:id="@+id/goToRecyclerViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to recycler view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goToActivityButtonId"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
