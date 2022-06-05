@@ -23,7 +23,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class ExampleInstrumentedTest {
+public class EspressoTestExample {
 
     @Rule
     public ActivityScenarioRule<MainActivity> activityScenarioRule
