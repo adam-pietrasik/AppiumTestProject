@@ -34,14 +34,9 @@ public class UiautomatorTestExample {
 
     private static final String BASIC_SAMPLE_PACKAGE
             = "com.example.appiumtestproject";
-
     private static final int LAUNCH_TIMEOUT = 5000;
-
     private static final String STRING_TO_BE_TYPED = "TAPAN SINUT";
-
     private UiDevice mDevice;
-
-
     @Before
     public void startMainActivityFromHomeScreen() {
         mDevice = UiDevice.getInstance(getInstrumentation());
@@ -60,6 +55,15 @@ public class UiautomatorTestExample {
 
         mDevice.wait(Until.hasObject(By.pkg(BASIC_SAMPLE_PACKAGE).depth(0)), LAUNCH_TIMEOUT);
     }
+    private String getLauncherPackageName() {
+        final Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+
+        PackageManager pm = getApplicationContext().getPackageManager();
+        ResolveInfo resolveInfo = pm.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        return resolveInfo.activityInfo.packageName;
+    }
+
 
     @Test
     public void checkPreconditions() {
@@ -100,7 +104,7 @@ public class UiautomatorTestExample {
         changedText = mDevice
                 .wait(Until.findObject(By.res(BASIC_SAMPLE_PACKAGE, "messageTvId")),
                         500);
-        assertThat(changedText.getText(), is(equalTo("Text will be shown here")));//ciekawa roznica
+        assertThat(changedText.getText(), is(equalTo("Text will be shown here")));
     }
 
 
@@ -129,26 +133,13 @@ public class UiautomatorTestExample {
 
     @Test
     public void openRecyclerView_nextFindGithubUser() {
-        //onView(withId(R.id.goToRecyclerViewId)).perform(click());
         mDevice.findObject(By.res(BASIC_SAMPLE_PACKAGE, "goToRecyclerViewId"))
                 .click();
 
-        //onView(withId(R.id.searchEditText)).perform(typeText("KamilSzus"), closeSoftKeyboard());
-        mDevice.findObject(By.res(BASIC_SAMPLE_PACKAGE,"searchEditText")).setText("KamilSzus");
+        mDevice.wait(Until.findObject(By.res(BASIC_SAMPLE_PACKAGE,"searchEditText")),500).setText("KamilSzus");
 
-
-       // onView(withId(R.id.searchButtonId)).perform(click());
         mDevice.findObject(By.res(BASIC_SAMPLE_PACKAGE, "searchButtonId"))
                 .click();
     }
 
-
-    private String getLauncherPackageName() {
-        final Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-
-        PackageManager pm = getApplicationContext().getPackageManager();
-        ResolveInfo resolveInfo = pm.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY);
-        return resolveInfo.activityInfo.packageName;
-    }
 }
